@@ -1,10 +1,18 @@
 pipeline{
     agent any
+
+    environment{
+        PATH = "/usr/bin/mvn:$PATH"
+    }
     stages{
         stage("Git checkout"){
             steps{
                 git credentialsId: 'github', url: 'https://github.com/abhim0055/nodeJS-CICD.git'
             }
+        }
+        stage("Maven Build"){
+            steps{
+                sh "mvn clean package"
         }
     }
 }
