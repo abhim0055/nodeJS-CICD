@@ -1,0 +1,10 @@
+pipeline{
+    agent any
+    stages{
+        stage("Git checkout"){
+            steps{
+                git credentialsId: 'github', url: 'https://github.com/abhim0055/nodeJS-CICD.git'
+            }
+        }
+    }
+}
